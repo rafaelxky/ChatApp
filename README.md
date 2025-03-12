@@ -13,6 +13,10 @@ To execute program:
 - Launch MyLittleBigMainClass.java from an IDE
 - open terminal
 - type: nc 127.0.0.1 9005
+- insert your name
+- open another terminal
+- repeat
+- now you can type text to communicate between the 2 terminals
 
 Common errors:
 error: 
