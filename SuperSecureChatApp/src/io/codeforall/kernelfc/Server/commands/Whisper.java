@@ -5,6 +5,7 @@ import io.codeforall.kernelfc.Server.Server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class Whisper extends Command {
     @Override
@@ -17,8 +18,8 @@ public class Whisper extends Command {
                 return;
             }
             Socket socket = server.usersMap.get(in[1]).getClientSocket();
-            clientHandler.whisper(socket, in[2]);
-            clientHandler.serverWrite(clientHandler.getClientSocket(), "Sent: " + in[2] + " - to - " + in[1]);
+            clientHandler.whisper(socket, String.join(" ",Arrays.copyOfRange(in, 2, in.length)));
+            clientHandler.serverWrite(clientHandler.getClientSocket(), "Sent: " + String.join(" ", Arrays.copyOfRange(in, 2, in.length)) + " - to - " + in[1]);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

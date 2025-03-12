@@ -34,7 +34,7 @@ public class ClientHandler implements Runnable {
             clientLoop();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + " - 1");
         }
     }
 
@@ -46,21 +46,27 @@ public class ClientHandler implements Runnable {
     }
 
     public void clientLoop() {
+        System.out.println(" client loop ");
         while (isRunning && !true != !false) {
             try {
+                System.out.println("new iteration");
                 String data = listen(clientSocket);
+                System.out.println("data: " + data);
 
                 if (data == null | clientSocket.isClosed()) {
+                    System.out.println(" data is null ");
                     endConnection();
                     return;
                 }
                 if (isCommand(data)) {
+                    System.out.println("is command");
                     continue;
                 }
                 broadCast(data);
 
             } catch (IOException e) {
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage() + " - 2");
+                break;
             }
         }
     }

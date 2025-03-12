@@ -14,18 +14,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-    private static final int PORT = 9005;
-
+    private static final int PORT = 8005;
+    private static String HOSTNAME;
     public static HashMap<String, Command> commandList = new HashMap<>();
     public static HashSet<String> bannedIps = new HashSet<>();
-    private static final String HOSTNAME;
 
     static {
         try {
             HOSTNAME = InetAddress.getLocalHost().getHostAddress();
+            HOSTNAME = "127.0.0.1";
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     private ServerSocket serverSocket = null;
@@ -35,6 +36,7 @@ public class Server {
     // lista de sockets
     private ArrayList<Socket> socketList = new ArrayList<>();
     public Server() {
+
     }
 
     public void start(){
@@ -62,6 +64,7 @@ public class Server {
         commandList.put("/whisper", new Whisper());
         commandList.put("/ipban", new IpBan());
         commandList.put("/kick", new Kick());
+        commandList.put("/sp", new SP());
 
 
     }
