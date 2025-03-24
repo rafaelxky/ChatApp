@@ -19,7 +19,6 @@ To execute program:
 - now you can type text to communicate between the 2 terminals
 
 Common errors:
-  - port already in use
-fix:
-  - go to the Server.java file and change the variable "PORT" to any other number
+- error: port already in use
+- fix: go to the Server.java file and change the variable "PORT" to any other number
     
