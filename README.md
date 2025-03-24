@@ -2,10 +2,10 @@
 A terminal based chat app that allows you to communicate with groups of people online.
 
 Data:
-Java version - Java 19 
-IDE - InteliJ 
-OS - Mac OS 
-Dependencies - netcat 
+- Java version - Java 19 
+- IDE - InteliJ 
+- OS - Mac OS 
+- Dependencies - netcat 
 
 To execute program:
 - Go to SuperSecureChatApp/src/io/codeforall/kernelfc
